@@ -1,13 +1,13 @@
 from ollama import chat
 
 
-def ask_model(user_text, model):
+def ask_model(user_text, model) -> str:
     messages = [
     {
         'role': 'user',
-        'content': f'{user_text}',
+        'content': user_text,
     },
     ]
 
     response = chat(model, messages=messages)
-    print(response['message']['content'])
+    return response['message']['content']
